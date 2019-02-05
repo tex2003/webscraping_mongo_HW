@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <style>
+      
+      body{
+      border-style: groove;
+      margin-left: 70px;
+      margin-right: 70px
+      }
+               
+      h4{
+      font-weight: bold;
+      font-family: Georgia;
+      text-align: center;
+      }
+
+      h3{
+      font-weight: bold;
+      font-family: Georgia;
+      }
+
+      h4.heading{
+      padding-top: 40px;
+      padding-right: 10px;
+      padding-bottom: 5px;
+      padding-left: 40px;
+      }
+
+      .subtitle{
+      font-weight: bold; 
+      font-size: 15px;
+      }
+
+      h4.hemisphere{
+      margin-top: 0px;
+      padding-top: 15px;
+      padding-right: 20px;
+      padding-bottom: 15px;
+      padding-left: 20px;
+      border-style: groove;
+      }
+
+      .weather{
+      margin-top: 55px;
+      border-style: groove;
+      padding-bottom: 15px;
+      }
+
+      .facts{
+      margin-top: 0px;
+      border-style: groove;
+      padding-bottom: 15px;  
+      }
+
+      th{
+      padding-top: 5px;
+      padding-right: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px; 
+      }
+
+      td{
+      padding-top: 2px;
+      padding-right: 5px;
+      padding-bottom: 2px;
+      padding-left: 5px; 
+      }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+    <h3 class="heading">Latest Mars News</h3>
+    <div class="row">
+      <div class="col-md-12">
+        <div class= subtitle>{{mars.news_title}}</div>
+        <div>{{mars.news_p}}</div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-8">
+        <h3 class="heading">Featured Mars Image</h3>
+        <img src = {{mars.featured_image_url}} class="img-responsive" alt="Featured Mars Image">
+      </div>
+      <div class="col-md-4 weather">
+        <h3>Current Weather on Mars</h3>
+        <div>{{mars.mars_weather}}</div>
+      </div>
+      <div class="col-md-4 facts">
+        <h3 class="heading">Mars Facts</h3>
+          <table border='1'> 
+            <tr> 
+              <th>Description</th> 
+              <th>Value</th> 
+            </tr> 
+            <tr> 
+              <td>{{mars.mars_table[0].value}}</td> 
+              <td>{{mars.mars_table[0].entry}}</td> 
+            </tr> 
+            <tr> 
+                <td>{{mars.mars_table[1].value}}</td> 
+                <td>{{mars.mars_table[1].entry}}</td>
+            </tr> 
+            <tr> 
+                <td>{{mars.mars_table[2].value}}</td> 
+                <td>{{mars.mars_table[2].entry}}</td>
+            </tr> 
+            <tr> 
+                <td>{{mars.mars_table[3].value}}</td> 
+                <td>{{mars.mars_table[3].entry}}</td>
+            </tr> 
+            <tr> 
+                <td>{{mars.mars_table[4].value}}</td> 
+                <td>{{mars.mars_table[4].entry}}</td>
+            </tr> 
+            <tr> 
+                <td>{{mars.mars_table[5].value}}</td> 
+                <td>{{mars.mars_table[5].entry}}</td>
+            </tr> 
+            <tr> 
+                <td>{{mars.mars_table[6].value}}</td> 
+                <td>{{mars.mars_table[6].entry}}</td>
+            </tr> 
+            <tr> 
+                <td>{{mars.mars_table[7].value}}</td> 
+                <td>{{mars.mars_table[7].entry}}</td>
+            </tr>
+            <tr> 
+                <td>{{mars.mars_table[8].value}}</td> 
+                <td>{{mars.mars_table[8].entry}}</td>
+            </tr> 
+          </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3 style="text-align: center">Mars Hemispheres</h3>
+        <hr>
+        <div class="col-md-6">
+          <img src = {{mars.hemisphere_image_urls[0].img_url_1}} class="img-responsive" alt="{{mars.hemisphere_image_urls[0].title_1}}"/>
+          <h4 class="hemisphere">{{mars.hemisphere_image_urls[0].title_1}}</h4>
+        </div>
+        <div class="col-md-6">
+           <img src = {{mars.hemisphere_image_urls[1].img_url_2}} class="img-responsive" alt="{{mars.hemisphere_image_urls[1].title_2}}"/>
+           <h4 class="hemisphere">{{mars.hemisphere_image_urls[1].title_2}}</h4>
+        </div>   
+      </div> 
+    </div>  
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-6">
+          <img src = {{mars.hemisphere_image_urls[2].img_url_3}} class="img-responsive" alt="{{mars.hemisphere_image_urls[2].title_3}}"/>
+          <h4 class="hemisphere">{{mars.hemisphere_image_urls[2].title_3}}</h4>
+        </div>
+        <div class="col-md-6">
+           <img src = {{mars.hemisphere_image_urls[3].img_url_4}} class="img-responsive" alt="{{mars.hemisphere_image_urls[3].title_4}}"/>
+           <h4 class="hemisphere">{{mars.hemisphere_image_urls[3].title_4}}</h4>
+        </div>   
+      </div> 
+    </div>    
+
+  </div>
+</body>
+
+</html>
+
